@@ -381,8 +381,19 @@ def main():
     Funcao principal do script.
     '''
     parser = argparse.ArgumentParser(
-        description='Reinicia automaticamente um arquivo .py quando ele ou seus modulos forem alterados.'
+        prog='monitor',
+        description='Reinicia automaticamente um arquivo .py quando ele ou seus modulos forem alterados.',
+        epilog=(
+            'Exemplos de uso:\n'
+            '  py monitor.py\n'
+            '  py monitor.py teste.py\n'
+            '  py monitor.py teste.py --ignore *.txt\n'
+            '  py monitor.py teste.py --watch src\n'
+            '  py monitor.py teste.py --debounce 1.0'
+        ),
+        formatter_class=argparse.RawDescriptionHelpFormatter
     )
+
 
     parser.add_argument(
         'arquivo',
